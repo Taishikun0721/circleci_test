@@ -6,12 +6,12 @@ jobs:
     steps:
       - checkout
       - run: echo "A first hello"
-      - run: mkdir -p my_workspace:
+      - run: mkdir -p my_workspace
       - run: echo "Trying out workspace" > /my_workspace/echo_output
-      - persist_to_workspace
+      - persist_to_workspace:
         root: my_workspace
         paths:
-          -echo_output
+          - echo_output
   two:
     docker:
       - image: circleci/ruby:2.4.1
